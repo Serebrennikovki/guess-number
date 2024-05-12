@@ -4,7 +4,9 @@ public interface IInputOutput
 {
     int ReadNumber();
 
-    void WriteResult(bool isMatching);
+    void WriteMatchingResult(bool isMatching);
+
+    void WriteWarning();
 
     void WriteTitle();
 }
