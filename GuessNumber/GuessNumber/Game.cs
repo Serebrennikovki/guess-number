@@ -10,19 +10,22 @@ public class Game
     private readonly IGenerator _generatorService;
     private readonly IInputOutput _inputOutputService;
     private readonly IConfiguration _configuration;
+    private readonly FloatNumberGeneratorService _floatGenerator;
     
-    public Game(IMatching matchingService, IGenerator generatorService, IInputOutput inputOutputService,IConfiguration configuration)
+    public Game(IMatching matchingService, IGenerator generatorService, IInputOutput inputOutputService,IConfiguration configuration,
+        FloatNumberGeneratorService floatGenerator)
     {
         _generatorService = generatorService;
         _inputOutputService = inputOutputService;
         _configuration = configuration;
         _matchingService = matchingService;
+        _floatGenerator = floatGenerator;
     }
 
     public void Run()
     {
         _inputOutputService.WriteTitle();
-        var guessNumber = _generatorService.GenerateNumber();
+        var guessNumber = _floatGenerator.GenerateNumber();
         var attempsAmount = int.Parse(_configuration["Game:Attemps"]);
         int currentAttemps = 0;
         do

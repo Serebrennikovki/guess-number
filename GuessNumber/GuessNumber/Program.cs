@@ -28,6 +28,7 @@ public class Program
                 services.AddTransient<IGenerator, GeneratorService>();
                 services.AddTransient<IMatching, MatchingService>();
                 services.AddTransient<IInputOutput, InputOutputService>();
+                services.AddTransient<FloatNumberGeneratorService>();
             });
     }
 
